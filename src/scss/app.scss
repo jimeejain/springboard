@@ -7,7 +7,15 @@ body{
 	background-color:#48485e;
 	color:#FFF;
 }
-
+.banner-bar{
+	position: fixed;
+	background-color:#48485e;
+	top:0;
+	width:100%;
+}
+.view-content{
+	margin-top:67px;
+}
 .ff-baloo{
 	font-family: 'Baloo Bhai', cursive;
 }

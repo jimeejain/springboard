@@ -36,6 +36,7 @@
 <!-- Corousel Portion -->
 <div class="corousel">
     <div class="w3-content w3-section" style="max-width:500px;">
+        <h2 class="w3-center">Other Available Learning Paths</h2>
         <div class="w3-animate-left w3-card-8 mySlides" ng-repeat="unitPath in path.availablePaths" ng-show="$index == path.currentSlideIndex">
             <a ng-href="{{'./#/path/'+unitPath.id}}">
                 <h5 class="w3-text-red" ng-bind="unitPath.name"></h5>
