@@ -38,7 +38,7 @@
 	<a ng-repeat="tag in pathList.tags | tagSearch:pathList.tagQuery" ng-click="pathList.addFilterTags(tag)">{{tag}}</a>
 </nav>
 <div id="path-list-container">
-	<div>
+	<div style="margin-top:38px;">
 		<span> Seleceted Tags (<span ng-bind="pathList.filterTags.length"></span>) : </span>
 		<span class="floating-tags w3-btn w3-light-grey" ng-repeat="ftag in pathList.filterTags" ng-bind="ftag" ng-click="pathList.addFilterTags(ftag)"></span>
 		<button ng-show="pathList.filterTags.length > 0" class="w3-btn tag-clear-all" ng-click="pathList.filterTags=[];">Clear All</button>
