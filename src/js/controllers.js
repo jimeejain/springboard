@@ -1,0 +1,5 @@
+angular.module("springboardApp")
+.controller("mainController",MainController)
+.controller("homeController",HomeController)
+.controller("pathListController",PathListController)
+.controller("pathDetailsController",PathDetailsController)

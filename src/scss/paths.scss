@@ -1,0 +1,60 @@
+.tagsList{
+	list-style-type: none;
+}
+.tag-clear-all{
+	margin-top:10px;
+}
+.pathCards{
+	//min-height:500px;
+	margin-top:10px;
+
+}
+.list-view-images{
+	height:200px;
+}
+#tag-container{
+	width:95%;
+}
+#path-list-container{
+	margin-left:0%;
+	padding:10px;
+}
+
+
+@media only screen and (min-width: 34em) {
+#tag-container{
+	width:250px;
+}
+	#path-list-container{
+		margin-left:250px;
+	}
+}
+
+
+
+.floating-tags{
+	display:inline-block;
+	margin:0 2px;
+	position: relative;
+	margin-top:10px;
+	&::before{
+		display: block;
+		content:'';
+		position: absolute;
+		top:0;
+		left: 0;
+		bottom:0;
+		width: 0;
+		background-color: rgba(100,100,100,0.7);
+		font-weight: bold;
+	}
+	&:hover{
+		text-align: center;
+		&::before{
+			content:'X';
+			right: 0;
+			width:auto;
+			color:#F00;
+		}
+	}
+}

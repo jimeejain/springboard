@@ -1,0 +1,81 @@
+<ul class="w3-navbar w3-teal">
+	<li><a>Filter By Tags</a></li>
+	<li>
+		<a ng-class="{'w3-grey':pathList.orderByKey == 'id'}" 
+			ng-click="pathList.setOrder('id')">
+			Id
+				<span ng-show="pathList.orderByAsc && pathList.orderByKey == 'id'"><i class="fa fa-sort-numeric-asc"></i></span>
+				<span ng-show="!pathList.orderByAsc && pathList.orderByKey == 'id'"><i class="fa fa-sort-numeric-desc"></i></span>
+			</a>
+	</li>
+	<li>
+		<a ng-class="{'w3-grey':pathList.orderByKey == 'name'}" 
+			ng-click="pathList.setOrder('name')">Name
+				<span ng-show="pathList.orderByAsc && pathList.orderByKey == 'name'"><i class="fa fa-sort-alpha-asc"></i></span>
+				<span ng-show="!pathList.orderByAsc && pathList.orderByKey == 'name'"><i class="fa fa-sort-alpha-desc"></i></span>
+			</a></li>
+	<li>
+		<a ng-class="{'w3-grey':pathList.orderByKey == 'learner'}" 
+			ng-click="pathList.setOrder('learner')">learner
+				<span ng-show="pathList.orderByAsc && pathList.orderByKey == 'learner'"><i class="fa fa-sort-numeric-asc"></i></span>
+				<span ng-show="!pathList.orderByAsc && pathList.orderByKey == 'learner'"><i class="fa fa-sort-numeric-desc"></i></span>
+			</a>
+	</li>
+	<li>
+		<a ng-class="{'w3-grey':pathList.orderByKey == 'hours'}" 
+			ng-click="pathList.setOrder('hours')">hours
+				<span ng-show="pathList.orderByAsc && pathList.orderByKey == 'hours'"><i class="fa fa-sort-numeric-asc"></i></span>
+				<span ng-show="!pathList.orderByAsc && pathList.orderByKey == 'hours'"><i class="fa fa-sort-numeric-desc"></i></span>
+			</a>
+	</li>
+	<li class="w3-right">
+		<a><input type="text" ng-model="path.query" placeholder="search by name or description or tags" /></a>
+	</li>
+</ul>
+
+<nav class="w3-sidenav w3-card-2 w3-text-teal tagsList" id="tag-container">
+	<a class="w3-grey"><input type="text" ng-model="pathList.tagQuery" placeholder="Seach Tags" /></a>
+	<a ng-repeat="tag in pathList.tags | tagSearch:pathList.tagQuery" ng-click="pathList.addFilterTags(tag)">{{tag}}</a>
+</nav>
+<div id="path-list-container">
+	<div>
+		<span> Seleceted Tags (<span ng-bind="pathList.filterTags.length"></span>) : </span>
+		<span class="floating-tags w3-btn w3-light-grey" ng-repeat="ftag in pathList.filterTags" ng-bind="ftag" ng-click="pathList.addFilterTags(ftag)"></span>
+		<button ng-show="pathList.filterTags.length > 0" class="w3-btn tag-clear-all" ng-click="pathList.filterTags=[];">Clear All</button>
+	</div>
+
+	<div class="w3-row-padding">
+		<div class="w3-col s12 m6 l4" ng-repeat="path in pathList.availablePaths | searchFilter:path.query | tagFilter:pathList.filterTags | orderFilter:pathList.orderByKey:pathList.orderByAsc">
+			<div class="w3-cards-8 w3-white w3-center pathCards">
+				<a ng-href="{{'./#/path/'+path.id}}" title="{{path.name}}">
+					<img ng-src="{{path.image}}" alt="{{path.name}}" class="list-view-images">
+					<h4 class="w3-teal" ng-bind="path.name"></h4>
+				</a>
+				<div class="w3-row">
+					<div class="w3-col s4">
+						<i class="fa fa-users"></i> <span ng-bind="path.learner"></span>
+					</div>
+					<div class="w3-col s4">
+						<i class="fa fa-clock-o"></i> <span ng-bind="path.hours"></span>+
+					</div>
+					<div class="w3-col s4">
+						<i class="fa fa-thumbs-up"></i> <span ng-bind="path.likeCount"></span>
+					</div>
+				</div>
+				<div class="w3-row">
+					<div class="w3-col s6">
+						<button class="w3-btn-block w3-light-grey" ng-click="pathList.likeDislike(path,false)">
+							<i class="fa fa-thumbs-down"></i> Down Vote
+						</button>
+					</div>
+					<div class="w3-col s6">
+						<button class="w3-btn-block w3-grey" ng-click="pathList.likeDislike(path)">
+							<i class="fa fa-thumbs-up"></i> Up Vote
+						</button>
+					</div>
+				</div>
+				<button class="w3-btn-block w3-teal" ng-click="pathList.showDetails(path.id)">View Details</button>
+			</div>
+		</div>
+	</div>
+</div>
