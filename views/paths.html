@@ -1,5 +1,5 @@
-<ul class="w3-navbar w3-teal">
-	<li><a>Filter By Tags</a></li>
+<ul class="w3-navbar w3-teal pathViewNavBar">
+	<li><a ng-click="pathList.isSideBarActive = !pathList.isSideBarActive;">Filter By Tags</a></li>
 	<li>
 		<a ng-class="{'w3-grey':pathList.orderByKey == 'id'}" 
 			ng-click="pathList.setOrder('id')">
@@ -33,7 +33,7 @@
 	</li>
 </ul>
 
-<nav class="w3-sidenav w3-card-2 w3-text-teal tagsList" id="tag-container">
+<nav class="w3-sidenav w3-card-2 w3-text-teal tagsList" ng-class="{'active':pathList.isSideBarActive}" id="tag-container">
 	<a class="w3-grey"><input type="text" ng-model="pathList.tagQuery" placeholder="Seach Tags" /></a>
 	<a ng-repeat="tag in pathList.tags | tagSearch:pathList.tagQuery" ng-click="pathList.addFilterTags(tag)">{{tag}}</a>
 </nav>

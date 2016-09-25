@@ -270,6 +270,7 @@ var PathListController = function () {
 		this.orderByKey = "id";
 		this.orderByAsc = true;
 
+		this.isSideBarActive = true;
 		this.getPaths();
 	}
 
