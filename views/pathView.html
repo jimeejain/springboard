@@ -1,0 +1,47 @@
+<ul class="w3-navbar w3-teal">
+	<li><a href="./#/paths">Paths</a></li>
+	<li><a> > </a></li>
+	<li><a href="" ng-bind="path.details.name"></a></li>
+</ul>
+<div class="w3-row-padding detailView">
+	<div class="w3-col s12 m6">
+		<h1 class="ff-baloo" ng-bind="path.details.name"></h1>
+        <div class="w3-row">
+        	<div class="w3-col s4">
+        		<i class="fa fa-users"></i> <span ng-bind="path.details.learner"></span>
+        	</div>
+        	<div class="w3-col s4">
+        		<i class="fa fa-clock-o"></i> <span ng-bind="path.details.hours"></span>
+        	</div>
+        	<div class="w3-col s4">
+        		<i class="fa fa-thumbs-up"></i> <span ng-bind="path.details.likeCount"></span>
+        	</div>
+        </div>
+        <detail ng-bind="path.details.description"></detail>
+		<div class="tags w3-margin-top">
+		    <span class="w3-btn w3-light-grey w3-margin-left" ng-repeat="ftag in path.details.tagsArr" ng-bind="ftag"></span>
+		</div>
+       	<div class="w3-margin-top">
+        	<a class="w3-btn w3-red w3-margin-top" ng-href="{{path.details.sign_up}}" target="_blank">
+        		<i class="fa fa-google" ></i>
+        		SignUp with Google to View
+        	</a>
+    	</div>
+	</div>
+	<div class="w3-col s12 m6 w3-center">
+		<img class="detailImage" ng-src="{{path.details.image}}" alt="{{path.details.name}}">
+	</div>
+</div>
+
+<!-- Corousel Portion -->
+<div class="corousel">
+    <div class="w3-content w3-section" style="max-width:500px;">
+        <div class="w3-animate-left w3-card-8 mySlides" ng-repeat="unitPath in path.availablePaths" ng-show="$index == path.currentSlideIndex">
+            <a ng-href="{{'./#/path/'+unitPath.id}}">
+                <h5 class="w3-text-red" ng-bind="unitPath.name"></h5>
+                <img ng-src="{{unitPath.image}}" style="width:100%;">
+            
+            </a>
+        </div>
+    </div>
+</div>

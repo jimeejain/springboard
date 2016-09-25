@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAAA,KACC,sBACA,UAAW,CACX","file":"app.css","sourcesContent":["body{\r\n\tbackground-color:#333;\r\n\tcolor:#FFF;\r\n}"],"sourceRoot":"/source/"}

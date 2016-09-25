@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="springboardApp" ng-controller="mainController as mainCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title ng-bind="mainCtrl.appTitle"></title>
+	<link rel="stylesheet" href="./css/w3.css">
+	<link rel="stylesheet" href="./css/app.css">
+	<link rel="icon" href="./images/favicon.png" type="image/png">
+</head>
+<body>
+	<ul class="w3-navbar">
+		<li><a href="/#/"><img src="./images/springboard_logo.png" class="springboard-logo" /></a></li>
+	</ul>
+	<div ng-view></div>
+	<!-- https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js" charset="utf-8"></script>
+	<script src="./js/app.js" charset="utf-8"></script>
+
+	<!-- Additional Resources to improve look and feel -->
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</body>
+</html>
